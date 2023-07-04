@@ -311,6 +311,147 @@ There are some unknown factors that we need to consider:
   - A parameter is passed to the application that indicates the number of teams.
   - The number of teams is determined by the number of unique preferences indicated by the players.
 
+There are two approaches to completing this problem:
+- The first approach is to sort the players into teams based on their preferences based on the initial order. This approach is more efficient, but it does not guarantee that all players will be assigned to a team or an optimized score.
+
+```javascript
+var express = require('express');
+var router = express.Router();
+
+var Players = require('../models/Players');
+
+//Description:
+// This route will sort the players into teams
+router.get('/', async function(req, res, next) {
+    //If a list of players in the game is not provided:
+    if(req.query.action === undefined ) {
+        await Players.find()
+            .then((docs) => {
+                let teams = assignTeams(docs);
+                res.send(teams);
+            })
+            .catch((err) => {
+                console.error(err);
+                res.send(err);
+            }
+        );
+    }
+});
+
+//A function which assigns players to teams based on their preferences:
+//@param players: An array of players
+function assignTeams(players) {
+    //Find the unique team names:
+    let teams = {};
+
+    for(let player of players) {
+        for(let preference of player.preference925) {
+            if(teams[preference] === undefined) {
+                teams[preference] = [];
+            }
+        }
+    }
+
+
+    let playersPerTeam = Math.floor(players.length / Object.keys(teams).length);    
+    
+    //Add the players to the teams:
+    for(let player of players) {
+        console.log(player.preference925);
+        if(teams[player.preference925[0]].length < playersPerTeam) {
+            teams[player.preference925[0]].push(player);
+        }
+        else if(teams[player.preference925[1]].length < playersPerTeam) {
+            teams[player.preference925[1]].push(player);
+        }
+        else if(teams[player.preference925[2]].length < playersPerTeam) {
+            teams[player.preference925[2]].push(player);
+        }
+    }
+
+    //Calculate the score of the teams:
+    let totalScore = 0;
+    for(let team in teams) {
+        let score = 0;
+        for(let player of teams[team]) {
+            if(player.preference925[0] === team) {
+                totalScore += 5;
+            }
+            else if(player.preference925[1] === team) {
+                totalScore += 4;
+            }
+            else if(player.preference925[2] === team) {
+                totalScore += 3;
+            }
+        }
+        teams[team].score = score;
+    }
+
+    //Return the teams and the total score:
+    return {teams: teams, totalScore: totalScore};
+}
+
+module.exports = router;
+```
+
+Accessing this route:
+http://localhost:3000/teams
+
+Will return a JSON response like this:
+```json
+{
+    "teams": {
+        "red": [{
+            "_id": "64a2316ec348d68c6635112c",
+            "fname925": "Grace",
+            "lname925": "Hopper",
+            "phone925": "555-555-5555",
+            "preference925": ["red", "green", "blue"],
+            "score": 5
+        }, {
+            "_id": "64a2329dc348d68c6635112e",
+            "fname925": "John",
+            "lname925": "Doe",
+            "phone925": "1234567890",
+            "preference925": ["red", "green", "blue"],
+            "score": 5
+        }],
+        "green": [{
+            "_id": "64a2330ac348d68c66351132",
+            "fname925": "Ada",
+            "lname925": "Lovelace",
+            "phone925": "1-555-555-5555",
+            "preference925": ["red", "green", "blue"],
+            "score": 4
+        }, {
+            "_id": "64a2332bc348d68c66351133",
+            "fname925": "Steve",
+            "lname925": "Wozniak",
+            "phone925": "1-555-555-5555",
+            "preference925": ["red", "green", "blue"],
+            "score": 4
+        }],
+        "blue": [{
+            "_id": "64a232b1c348d68c6635112f",
+            "fname925": "Jane",
+            "lname925": "Doe",
+            "phone925": "1-555-555-5555",
+            "preference925": ["blue", "green", "red"],
+            "score": 5
+        }, {
+            "_id": "64a232f5c348d68c66351131",
+            "fname925": "Alan",
+            "lname925": "Turing",
+            "phone925": "1-555-555-5555",
+            "preference925": ["blue", "green", "red"],
+            "score": 5
+        }]
+    },
+    "totalScore": 28
+}
+```
+
+Alternative Approach: permute all off the possible combinations of teams and calculate the score of each combination. This approach is more computationally expensive, but it guarantees that the best possible score is achieved. (Not implemented)
 
 ## Conclusion
 
