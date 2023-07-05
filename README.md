@@ -320,15 +320,179 @@ var router = express.Router();
 
 var Players = require('../models/Players');
 
+
+
+// 1. Teams will have an equal number of players,
+// 2. Players will be sorted by their preference
+// 3. If the number of players is not divisible by the number of teams, the remaining players will not be added to a team
+// 4. The score of the sorting will be determined by the players preference
+// 5. Players assigned to their first preference will have a score of 5
+// 6. Players assigned to their second preference will have a score of 4
+// 7. Players assigned to their third preference will have a score of 3
+function assignTeamsQuick(players) {
+    //Set a score of 0 to each player:
+    for(let player of players) {
+        player.score = 0;
+    }
+
+    //Find the unique team names:
+    let teams = {};
+    for(let player of players) {
+        for(let preference of player.preference925) {
+            if(teams[preference] === undefined) {
+                teams[preference] = [];
+            }
+        }
+    }
+
+    //Find the number of players per team:
+    let playersPerTeam = Math.floor(players.length / Object.keys(teams).length);
+
+    let totalScore = 0;
+
+    //Assign players to their first preference, adding the appropriate score to the object representing the player:
+    for(let i = 0; i < players.length; i++) {
+        if(teams[players[i].preference925[0]].length < playersPerTeam) {
+            totalScore += 5;
+            players[i].score = 5;
+            teams[players[i].preference925[0]].push(players[i]);
+        }
+        else if(teams[players[i].preference925[1]].length < playersPerTeam) {
+            totalScore += 4;
+            players[i].score = 4;
+            teams[players[i].preference925[1]].push(players[i]);
+        }
+        else if(teams[players[i].preference925[2]].length < playersPerTeam) {
+            totalScore += 3;
+            players[i].score = 3;
+            teams[players[i].preference925[2]].push(players[i]);
+        }
+    }
+
+    return {teams: teams, totalScore: totalScore};
+}
+
+function assignTeamsNoPreference(players) {
+    //Set a score of 0 to each player:
+    for(let player of players) {
+        player.score = 0;
+    }
+
+    //Find the unique team names:
+    let teams = {};
+    for(let player of players) {
+        for(let preference of player.preference925) {
+            if(teams[preference] === undefined) {
+                teams[preference] = [];
+            }
+        }
+    }
+
+    //Find the number of players per team:
+    let playersPerTeam = Math.floor(players.length / Object.keys(teams).length);
+
+    let totalScore = 0;
+
+    for(let i = 0; i < players.length; i++) {
+        for(let key in teams) {
+            if(teams[key].length < playersPerTeam) {
+                if(players[i].preference925[0] === key) {
+                    totalScore += 5;
+                    players[i].score = 5;
+                }
+                else if(players[i].preference925[1] === key) {
+                    totalScore += 4;
+                    players[i].score = 4;
+                }
+                else if(players[i].preference925[2] === key) {
+                    totalScore += 3;
+                    players[i].score = 3;
+                }
+                teams[key].push(players[i]);
+                break;
+            }
+        }
+    }
+
+    return {teams: teams, totalScore: totalScore};
+}
+        
+
+//Generate all the combinations with the same cardinality as the number of players:
+function permutePlayers(players) {
+    var results = [];
+  
+    //Recursively generate all the permutations:
+    function permute(arr, previousArray) {
+      var currentArray
+      var previousArray = previousArray || [];
+  
+      for (var i = 0; i < arr.length; i++) {
+        currentArray = arr.splice(i, 1);
+        if (arr.length === 0) {
+          results.push(previousArray.concat(currentArray));
+        }
+        permute(arr.slice(), previousArray.concat(currentArray));
+        arr.splice(i, 0, currentArray[0]);
+      }
+  
+      return results;
+    }
+  
+    return permute(players);
+  }
+
+
+//Generate all permutations of the players, then run the quick algorithm on each permutation to calculate its score:
+function assignTeamsOptimized(players) {
+    //Find the unique team names:
+    let teams = {};
+    for(let player of players) {
+        for(let preference of player.preference925) {
+            if(teams[preference] === undefined) {
+                teams[preference] = [];
+            }
+        }
+    }
+
+    //Get each possible permutation of the players:
+    let playerPermutations = permutePlayers(players);
+
+    //Create an array to store each possible permutation of the player arrangement:
+    let teamPermutations = [];
+
+    //For each permutation of the players, run the quick algorithm to calculate the score and push it to the array:
+    for(let permutation of playerPermutations) {
+        let result = assignTeamsNoPreference(permutation);
+        teamPermutations.push(result);
+    }
+
+    console.log(teamPermutations);
+    
+    let largestScore = 0;
+    let largestScoreIndex = 0;
+
+    //Find the permutation with the highest score:
+    for(let i = 0; i < teamPermutations.length; i++) {
+        if(teamPermutations[i].totalScore > largestScore) {
+            largestScore = teamPermutations[i].totalScore;
+            largestScoreIndex = i;
+        }
+    }
+    //Return the first item in the array, which will be the permutation with the highest score:
+    return teamPermutations[largestScoreIndex];
+
+}
+
 //Description:
-// This route will sort the players into teams
+// This route will sort the players into teams, in order, according to their indicated preference:
 router.get('/', async function(req, res, next) {
     //If a list of players in the game is not provided:
     if(req.query.action === undefined ) {
         await Players.find()
             .then((docs) => {
-                let teams = assignTeams(docs);
-                res.send(teams);
+                let teamsQuick = assignTeamsQuick(docs);
+                res.send(teamsQuick);
             })
             .catch((err) => {
                 console.error(err);
@@ -338,66 +502,93 @@ router.get('/', async function(req, res, next) {
     }
 });
 
-//A function which assigns players to teams based on their preferences:
-//@param players: An array of players
-function assignTeams(players) {
-    //Find the unique team names:
-    let teams = {};
-
-    for(let player of players) {
-        for(let preference of player.preference925) {
-            if(teams[preference] === undefined) {
-                teams[preference] = [];
+//Description:
+// This route will sort the players into teams, in order, according to their indicated preference:
+router.get('/quick', async function(req, res, next) {
+    //If a list of players in the game is not provided:
+    if(req.query.action === undefined ) {
+        await Players.find()
+            .then((docs) => {
+                let teamsQuick = assignTeamsQuick(docs);
+                res.send(teamsQuick);
+            })
+            .catch((err) => {
+                console.error(err);
+                res.send(err);
             }
-        }
+        );
     }
+});
 
-
-    let playersPerTeam = Math.floor(players.length / Object.keys(teams).length);    
-    
-    //Add the players to the teams:
-    for(let player of players) {
-        console.log(player.preference925);
-        if(teams[player.preference925[0]].length < playersPerTeam) {
-            teams[player.preference925[0]].push(player);
-        }
-        else if(teams[player.preference925[1]].length < playersPerTeam) {
-            teams[player.preference925[1]].push(player);
-        }
-        else if(teams[player.preference925[2]].length < playersPerTeam) {
-            teams[player.preference925[2]].push(player);
-        }
+//Description:
+// This route will sort the players into teams, trying to optimize for the highest score:
+router.get('/optimized', async function(req, res, next) {
+    //If a list of players in the game is not provided:
+    if(req.query.action === undefined ) {
+        await Players.find()
+            .then((docs) => {
+                let teamsOptimized = assignTeamsOptimized(docs);
+                res.send(teamsOptimized);
+            })
+            .catch((err) => {
+                console.error(err);
+                res.send(err);
+            }
+        );
     }
-
-    //Calculate the score of the teams:
-    let totalScore = 0;
-    for(let team in teams) {
-        let score = 0;
-        for(let player of teams[team]) {
-            if(player.preference925[0] === team) {
-                totalScore += 5;
-            }
-            else if(player.preference925[1] === team) {
-                totalScore += 4;
-            }
-            else if(player.preference925[2] === team) {
-                totalScore += 3;
-            }
-        }
-        teams[team].score = score;
-    }
-
-    //Return the teams and the total score:
-    return {teams: teams, totalScore: totalScore};
-}
+});
 
 module.exports = router;
+
 ```
 
-Accessing this route:
-http://localhost:3000/teams
+Accessing these routes is done by sending a GET request to the following URLs:
+/teams/quick <- Assigns players to teams using the quick algorithm, placing them in their preferred teams first, by order which they are listed in the array.
+/teams/optimized <- Assigns players to teams while trying to find the best possible arrangement of players, by calculating the score of each permutation of players and returning the permutation with the highest score.
 
-Will return a JSON response like this:
+So, for instance, if we have the following objects in our database:
+
+```json
+[{
+    "_id": "64a2316ec348d68c6635112c",
+    "fname925": "Grace",
+    "lname925": "Hopper",
+    "phone925": "555-555-5555",
+    "preference925": ["red", "green", "blue"]
+}, {
+    "_id": "64a2329dc348d68c6635112e",
+    "fname925": "John",
+    "lname925": "Doe",
+    "phone925": "1234567890",
+    "preference925": ["red", "green", "blue"]
+}, {
+    "_id": "64a232b1c348d68c6635112f",
+    "fname925": "Jane",
+    "lname925": "Doe",
+    "phone925": "1-555-555-5555",
+    "preference925": ["blue", "green", "red"]
+}, {
+    "_id": "64a232f5c348d68c66351131",
+    "fname925": "Alan",
+    "lname925": "Turing",
+    "phone925": "1-555-555-5555",
+    "preference925": ["blue", "green", "red"]
+}, {
+    "_id": "64a2330ac348d68c66351132",
+    "fname925": "Ada",
+    "lname925": "Lovelace",
+    "phone925": "1-555-555-5555",
+    "preference925": ["blue", "green", "red"]
+}, {
+    "_id": "64a2332bc348d68c66351133",
+    "fname925": "Steve",
+    "lname925": "Wozniak",
+    "phone925": "1-555-555-5555",
+    "preference925": ["blue", "red", "green"]
+}]
+```
+
+You will receive a JSON response like this with the players sorted into teams, using the quick algorithm:
 ```json
 {
     "teams": {
@@ -421,15 +612,15 @@ Will return a JSON response like this:
             "fname925": "Ada",
             "lname925": "Lovelace",
             "phone925": "1-555-555-5555",
-            "preference925": ["red", "green", "blue"],
+            "preference925": ["blue", "green", "red"],
             "score": 4
         }, {
             "_id": "64a2332bc348d68c66351133",
             "fname925": "Steve",
             "lname925": "Wozniak",
             "phone925": "1-555-555-5555",
-            "preference925": ["red", "green", "blue"],
-            "score": 4
+            "preference925": ["blue", "red", "green"],
+            "score": 3
         }],
         "blue": [{
             "_id": "64a232b1c348d68c6635112f",
@@ -447,11 +638,67 @@ Will return a JSON response like this:
             "score": 5
         }]
     },
+    "totalScore": 27
+}
+```
+Which yields a total score of 27. 
+
+By instead using optimized score algorithm, we can yield 28 instead:
+```json
+{
+    "teams": {
+        "red": [{
+            "_id": "64a2316ec348d68c6635112c",
+            "fname925": "Grace",
+            "lname925": "Hopper",
+            "phone925": "555-555-5555",
+            "preference925": ["red", "green", "blue"],
+            "score": 4
+        }, {
+            "_id": "64a2329dc348d68c6635112e",
+            "fname925": "John",
+            "lname925": "Doe",
+            "phone925": "1234567890",
+            "preference925": ["red", "green", "blue"],
+            "score": 4
+        }],
+        "green": [{
+            "_id": "64a232b1c348d68c6635112f",
+            "fname925": "Jane",
+            "lname925": "Doe",
+            "phone925": "1-555-555-5555",
+            "preference925": ["blue", "green", "red"],
+            "score": 3
+        }, {
+            "_id": "64a232f5c348d68c66351131",
+            "fname925": "Alan",
+            "lname925": "Turing",
+            "phone925": "1-555-555-5555",
+            "preference925": ["blue", "green", "red"],
+            "score": 3
+        }],
+        "blue": [{
+            "_id": "64a2330ac348d68c66351132",
+            "fname925": "Ada",
+            "lname925": "Lovelace",
+            "phone925": "1-555-555-5555",
+            "preference925": ["blue", "green", "red"],
+            "score": 5
+        }, {
+            "_id": "64a2332bc348d68c66351133",
+            "fname925": "Steve",
+            "lname925": "Wozniak",
+            "phone925": "1-555-555-5555",
+            "preference925": ["blue", "red", "green"],
+            "score": 5
+        }]
+    },
     "totalScore": 28
 }
 ```
 
-Alternative Approach: permute all off the possible combinations of teams and calculate the score of each combination. This approach is more computationally expensive, but it guarantees that the best possible score is achieved. (Not implemented)
+There is some drawbacks to using this algorithm as it depends on permuting the array, thus the complexity of the algorithm is n!. For a database with 6 items, this is only 720 permutations, but for a database with 10 items, this is 3,628,800 permutations. This is why the quick algorithm is used by default, but the optimized algorithm is available if you want to use it.
+
 
 ## Conclusion
 
