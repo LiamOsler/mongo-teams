@@ -12,6 +12,9 @@ var indexRouter = require('./routes/index');
 var playersRouter = require('./routes/players');
 var teamsRouter = require('./routes/teams');
 
+var cors = require('cors');
+
+
 
 var app = express();
 
@@ -49,6 +52,7 @@ app.use(function(req, res, next) {
 
 //Allow CORS:
 app.use(function(req, res, next) {
+  cors({origin: ['http://codepen.io']})
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
