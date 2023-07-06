@@ -23,6 +23,12 @@ https://codepen.io/liamosler/pen/vYQZGob
 
 This provides a minimal GUI with which to interact with the backend API. The GUI allows you to view the data hosted in the hosted database through fetch requests to the API endpoints hosted on the code sandbox service Replit. The front-end is written in basic HTML, CSS, and JavaScript.
 
+### Repository:
+
+The repository for the assignment can be found in the following GitHub repository:
+https://github.com/LiamOsler/mongo-teams
+
+
 
 ## Running Locally: 
 
@@ -103,6 +109,8 @@ Example:
 ```
 GET /players
 ```
+https://mongo-teams.liamo2.repl.co/players
+
 
 ### Case 2: Query parameter 'action' is 'findById'
 
@@ -113,6 +121,10 @@ Example:
 GET /players?action=findById&id=64a2329dc348d68c6635112e
 ```
 
+https://mongo-teams.liamo2.repl.co/players?action=findById&id=64a2329dc348d68c6635112e
+
+
+
 ### Case 3: Query parameter 'action' is 'findByIdAndDelete'
 
 If the query parameter 'action' is set to 'findByIdAndDelete', the route deletes a player with the specified ID.
@@ -121,6 +133,7 @@ Example:
 ```
 GET /players?action=findByIdAndDelete&id=64a2329dc348d68c6635112e
 ```
+https://mongo-teams.liamo2.repl.co/players?action=findByIdAndDelete&id=64a2329dc348d68c6635112e
 
 ### Case 4: Query parameter 'action' is 'findByIdAndUpdate'
 
@@ -128,8 +141,9 @@ If the query parameter 'action' is set to 'findByIdAndUpdate', the route updates
 
 Example:
 ```
-GET /players?action=findByIdAndUpdate&id=64a2329dc348d68c6635112e&fname925=John&lname925=Doe&phone925=1234567890&preference925=1,2,3
+GET /players?action=findByIdAndUpdate&id=64a2329dc348d68c6635112e&fname925=John&lname925=Doe&phone925=1234567890&preference925=red,green,blue
 ```
+https://mongo-teams.liamo2.repl.co/players?action=findByIdAndUpdate&id=64a2329dc348d68c6635112e&fname925=John&lname925=Doe&phone925=1234567890&preference925=red,green,blue
 
 ### Case 5: Query parameter 'action' is 'create'
 
@@ -137,8 +151,10 @@ If the query parameter 'action' is set to 'create', the route creates a new play
 
 Example:
 ```
-GET /players?action=create&fname925=John&lname925=Doe&phone925=1234567890&preference925=1,2,3
+GET /players?action=create&fname925=John&lname925=Doe&phone925=1234567890&preference925=red,green,blue
 ```
+https://mongo-teams.liamo2.repl.co/players?action=create&fname925=John&lname925=Doe&phone925=1234567890&preference925=red,green,blue
+
 
 ### Error Handling
 
@@ -589,6 +605,7 @@ So, for instance, if we have the following objects in our database:
 ```
 
 You will receive a JSON response like this with the players sorted into teams, using the quick algorithm:
+https://mongo-teams.liamo2.repl.co/teams/quick
 ```json
 {
     "teams": {
@@ -644,6 +661,7 @@ You will receive a JSON response like this with the players sorted into teams, u
 Which yields a total score of 27. 
 
 By instead using optimized score algorithm, we can yield 28 instead:
+https://mongo-teams.liamo2.repl.co/teams/optimized
 ```json
 {
     "teams": {
@@ -697,7 +715,7 @@ By instead using optimized score algorithm, we can yield 28 instead:
 }
 ```
 
-There is some drawbacks to using this algorithm as it depends on permuting the array, thus the complexity of the algorithm is n!. For a database with 6 items, this is only 720 permutations, but for a database with 10 items, this is 3,628,800 permutations. This is why the quick algorithm is used by default, but the optimized algorithm is available if you want to use it.
+There is some drawbacks to using this algorithm as it depends on permuting the array, thus the complexity of the algorithm is n!. For a database with 6 items, this is only 720 permutations, but for a database with 10 items, this is 3,628,800 permutations.
 
 
 ## Conclusion

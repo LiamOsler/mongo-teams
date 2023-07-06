@@ -79,23 +79,26 @@ function assignTeamsNoPreference(players) {
     for(let i = 0; i < players.length; i++) {
         for(let key in teams) {
             if(teams[key].length < playersPerTeam) {
-                if(players[i].preference925[0] === key) {
+                if(key === players[i].preference925[0]) {
                     totalScore += 5;
                     players[i].score = 5;
                 }
-                else if(players[i].preference925[1] === key) {
+                else if(key === players[i].preference925[1]) {
                     totalScore += 4;
                     players[i].score = 4;
                 }
-                else if(players[i].preference925[2] === key) {
+                else if(key === players[i].preference925[2]) {
                     totalScore += 3;
                     players[i].score = 3;
                 }
+
                 teams[key].push(players[i]);
+
                 break;
             }
         }
     }
+    
 
     return {teams: teams, totalScore: totalScore};
 }
