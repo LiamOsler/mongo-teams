@@ -131,6 +131,28 @@ function permutePlayers(players) {
     return permute(players);
   }
 
+function uniqueCombinations(names, groupSize, index = 0, current = []) {
+    if (current.length === groupSize) return [current];
+    if (index === names.length) return [];
+    return uniqueCombinations(names, groupSize, index + 1, current.concat(names[index]))
+        .concat(uniqueCombinations(names, groupSize, index + 1, current));
+} 
+// Function to generate combinations
+  
+function buildGames(uniqueCombinations, numberOfTeams) {
+
+    let possibleGames = [];
+
+    //Generate all possible matchups of teams, ensuring there are no duplicate teams or players:
+
+    for(let i = 0; i < uniqueCombinations.length; i++) {
+        let game = [];
+        
+    
+    }
+
+}
+  
 
 //Generate all permutations of the players, then run the quick algorithm on each permutation to calculate its score:
 function assignTeamsOptimized(players) {
@@ -144,41 +166,57 @@ function assignTeamsOptimized(players) {
         }
     }
 
-    //Get each possible permutation of the players:
-    let playerPermutations = permutePlayers(players);
+    console.log(players.length)
+
+    let playersPerTeam = Math.floor(players.length / Object.keys(teams).length);
+
+    let numberOfTeams = Object.keys(teams).length;
+
+    let combos = uniqueCombinations(players, playersPerTeam);
+
+    let possibleGames = uniqueCombinations(combos, numberOfTeams);
+
+
+    console.log(possibleGames.length)
+    
+
+    console.log(combos.length)
+
+    console.log(combos[0])
+    
+
+
+
+    // console.log(possibleGames)
 
     //Create an array to store each possible permutation of the player arrangement:
-    let teamPermutations = [];
+    // let teamPermutations = [];
     let scorePermutations = [];
 
     //For each permutation of the players, run the quick algorithm to calculate the score and push it to the array:
-    for(let permutation of playerPermutations) {
-        let result = assignTeamsNoPreference(permutation);
-        teamPermutations.push(result);
-    }
 
     
     let largestScore = 0;
     let largestScoreIndex = 0;
 
 
-    //Find the permutation with the highest score:
-    for(let i = 0; i < teamPermutations.length; i++) {
-        if(teamPermutations[i].totalScore > largestScore) {
-            largestScore = teamPermutations[i].totalScore;
-            largestScoreIndex = i;
-        }
-    }
-    //Update the score of the players in the permutation with the highest score:
+    // //Find the permutation with the highest score:
+    // for(let i = 0; i < teamPermutations.length; i++) {
+    //     if(teamPermutations[i].totalScore > largestScore) {
+    //         largestScore = teamPermutations[i].totalScore;
+    //         largestScoreIndex = i;
+    //     }
+    // }
+    // //Update the score of the players in the permutation with the highest score:
 
-    for(let key in teamPermutations[largestScoreIndex].teams) {
-        for(let i = 0; i < teamPermutations[largestScoreIndex].teams[key].length; i++) {
-            teamPermutations[largestScoreIndex].teams[key][i].score = teamPermutations[largestScoreIndex].scores[key][i];
-        }
-    }
+    // for(let key in teamPermutations[largestScoreIndex].teams) {
+    //     for(let i = 0; i < teamPermutations[largestScoreIndex].teams[key].length; i++) {
+    //         teamPermutations[largestScoreIndex].teams[key][i].score = teamPermutations[largestScoreIndex].scores[key][i];
+    //     }
+    // }
 
-    //Return the first item in the array, which will be the permutation with the highest score:
-    return {teams: teamPermutations[largestScoreIndex].teams, totalScore:  teamPermutations[largestScoreIndex].totalScore};
+    // //Return the first item in the array, which will be the permutation with the highest score:
+    // return {teams: teamPermutations[largestScoreIndex].teams, totalScore:  teamPermutations[largestScoreIndex].totalScore};
 
 }
 

@@ -1,11 +1,148 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
   <head>
     <title>Mongo925</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
   <body>
     <main>
+      <section>
+        <h1>Games925</h1>
+        <p>Author: Liam Osler</p>
+        <p>Date: July 2023</p>
+
+        <article>
+          <h2>Description</h2>
+          <p>The objective of Games925 is to sort players into teams based on their indicated preference of team. Based on the result of the sorting, a score is applied to each player:<p>
+          <ul>
+            <li>If a player is assigned to their first preference, they get 5 points.</li>
+            <li>If a player is assigned to their second preference, they get 4 points.</li>
+            <li>If a player is assigned to their third preference, they get 3 points.</li>
+          </ul>
+
+          <p>Boundaries:</p>
+          <ul>
+           <li>The player's preferences are ordered in an array from most preferred to least preferred.</li>
+           <li>The player's preferences are unique.</li>
+           <li>The player can only indicate three preferences.</li>
+          </ul>
+
+          <p>Teams must have an equal number of players. Each team must have at least one player. The list of teams is determined by the unique indicated preferences of players.</p>
+
+        </article>
+      </section>
+
+      <section>
+        <h1>Teams</h1>
+        <article id = "team-results">
+          <small>
+            Result Appear Here. Click "Run" for the specific algorithms below.
+          </small>
+        </article>
+        <article id = "sequential-sort">
+          <h2>Assign Sequentially</h2>
+          <p>Adds players directly to the first team with available spots, without consideration for preference. This is the fastest method for assigning players to teams, but the score is entirely determined by the initial order of the players in the array.</p>
+          <button>
+            Run
+          </button>
+        </article>
+        <article id = "sequential-preference">
+          <h2>Assign Sequentially, Considering Preference</h2>
+          <p>Adds players directly to the first team with available spots, assigning players to teams based on their indicated preference and whether there are spot still available on the specific team</p>
+          <button id = "run-quick">
+            Run
+          </button>
+          <a href = "https://mongo-teams.liamo2.repl.co/teams/quick">API Endpoint</a>
+          <br>
+        </article>
+        <article id = "brute-force">
+          <h2>Brute Force</h2>
+          <p>Assigns players to teams based on their indicated preference, but tries every possible combination of teams to find the best possible score. This is the slowest method for assigning players to teams, but the score is guaranteed to be the highest possible.</p>
+          <p>Note: because of the factorial nature of this algorithm, the number of permutations that needs to be checked grows very quickly with the number of players!</p>
+          <button id = "run-brute">
+            Run
+          </button>
+          <a href = "https://mongo-teams.liamo2.repl.co/teams/optimized">API Endpoint</a>
+
+        </article>  
+      </section>
+
+
+
+      <section>
+        <h1>Players</h1>
+        <article>
+          <h2>Player list</h2>
+          <p>
+            <b>API Endpoint:</b> <a>https://mongo-teams.liamo2.repl.co/players</a>
+          </p>
+          <p>
+            Players in the database:
+          </p>
+          <div id = "player-list">
+            <table id = "player-table">
+              <tr>
+                <th>Player ID</th>
+                <th>Player Name</th>
+                <th>Player Phone</th>
+                <th>Player Preferences</th>
+              </tr>
+            </table>
+        </article>
+
+        <article>
+          <h2>Add a player</h2>
+          <form id = "add-player">
+            <label for = "player-name">Player First Name:</label>
+            <input type = "text" id = "player-fname" name = "player-fname" required>
+            <br>
+            <label for = "player-name">Player Last Name:</label>
+            <input type = "text" id = "player-lname" name = "player-lname" required>
+            <br>
+            <label for = "player-phone">Player Phone:</label>
+            <input type = "text" id = "player-phone" name = "player-phone" required>
+            <br>
+            <label for = "player-preferences">Player Preferences (Comma Separated):</label>
+            <input type = "text" id = "player-preferences" name = "player-preferences" required>
+            <br>
+            <br>
+            <input type = "submit" value = "Submit">
+          </form>
+        </article>
+
+        <article>
+          <h2>Update a player</h2>
+          <form id = "update-player">
+            <label for = "player-id">Player ID:</label>
+            <input type = "text" id = "player-id-update" name = "player-id" required>
+            <br>
+            <label for = "player-name">Player First Name:</label>
+            <input type = "text" id = "player-fname-update" name = "player-fname" required>
+            <br>
+            <label for = "player-name">Player Last Name:</label>
+            <input type = "text" id = "player-lname-update" name = "player-lname" required>
+            <br>
+            <label for = "player-phone">Player Phone:</label>
+            <input type = "text" id = "player-phone-update" name = "player-phone" required>
+            <br>
+            <label for = "player-preferences">Player Preferences (Comma Separated):</label>
+            <input type = "text" id = "player-preferences-update" name = "player-preferences" required>
+            <br>
+            <br>
+            <input type = "submit" value = "Submit">
+          </form>
+        </article>
+
+        <article>
+          <h2>Delete a player</h2>
+          <form id = "delete-player">
+            <label for = "player-id">Player ID:</label>
+            <input type = "text" id = "player-id-delete" name = "player-id" required>
+            <br>
+            <br>
+            <input type = "submit" value = "Submit">
+        </article>
+      </section>
 
     </main>
 

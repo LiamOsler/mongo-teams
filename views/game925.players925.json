@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "64a2316ec348d68c6635112c"
+  },
+  "fname925": "Grace",
+  "lname925": "Hopper",
+  "phone925": "555-555-5555",
+  "preference925": [
+    "red",
+    "green",
+    "blue"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2329dc348d68c6635112e"
+  },
+  "fname925": "John",
+  "lname925": "Doe",
+  "phone925": "1234567890",
+  "preference925": [
+    "red",
+    "green",
+    "blue"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a232b1c348d68c6635112f"
+  },
+  "fname925": "Jane",
+  "lname925": "Doe",
+  "phone925": "1-555-555-5555",
+  "preference925": [
+    "blue",
+    "green",
+    "red"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a232f5c348d68c66351131"
+  },
+  "fname925": "Alan",
+  "lname925": "Turing",
+  "phone925": "1-555-555-5555",
+  "preference925": [
+    "blue",
+    "green",
+    "red"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2330ac348d68c66351132"
+  },
+  "fname925": "Ada",
+  "lname925": "Lovelace",
+  "phone925": "1-555-555-5555",
+  "preference925": [
+    "blue",
+    "green",
+    "red"
+  ]
+},
+{
+  "_id": {
+    "$oid": "64a2332bc348d68c66351133"
+  },
+  "fname925": "Steve",
+  "lname925": "Wozniak",
+  "phone925": "1-555-555-5555",
+  "preference925": [
+    "blue",
+    "red",
+    "green"
+  ]
+}]

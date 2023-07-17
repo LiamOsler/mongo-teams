@@ -1,0 +1,944 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Magenta\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.8\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="overview">Overview</h2>
+
+<p>The code consists of a Node.js application that serves as a backend server for a game application. It uses Express.js as the web framework and MongoDB as the database to store player information. This player information is used to generate teams based on the player&apos;s indicated team preference. The application retrieves player data from the database and exposes it through a RESTful API endpoint.</p>
+<h2 class="mume-header" id="quickstart">Quickstart:</h2>
+
+<h3 class="mume-header" id="backend">Backend:</h3>
+
+<p>For convenience, I have hosted the back-end code on Replit, which can be accessed at the following link:<br>
+<a href="https://replit.com/@LiamO2/mongo-teams">https://replit.com/@LiamO2/mongo-teams</a></p>
+<p>The following URLs can be used to access the API endpoint:<br>
+<a href="https://mongo-teams.liamo2.repl.co/">https://mongo-teams.liamo2.repl.co/</a><br>
+<a href="https://mongo-teams.liamo2.repl.co/">https://mongo-teams.liamo2.repl.co/</a></p>
+<p>Further explanation of the use of these API endpoints is found in this report. These endpoints are connected to a MongoDB database hosted on <a href="http://mongodb.com">mongodb.com</a></p>
+<p>Replit sandboxes may become dormant, so there may be a momentary delay when accessing the API endpoints while the sandbox is reactivated.</p>
+<h3 class="mume-header" id="frontend--gui">Frontend / GUI:</h3>
+
+<p>The frontend code is hosted on the code sandbox service Codepen, and can be accessed at the following link:<br>
+<a href="https://codepen.io/liamosler/pen/vYQZGob">https://codepen.io/liamosler/pen/vYQZGob</a></p>
+<p>This provides a minimal GUI with which to interact with the backend API. The GUI allows you to view the data hosted in the hosted database through fetch requests to the API endpoints hosted on the code sandbox service Replit. The front-end is written in basic HTML, CSS, and JavaScript.</p>
+<h3 class="mume-header" id="repository">Repository:</h3>
+
+<p>The repository for the assignment can be found in the following GitHub repository:<br>
+<a href="https://github.com/LiamOsler/mongo-teams">https://github.com/LiamOsler/mongo-teams</a></p>
+<h2 class="mume-header" id="running-locally">Running Locally:</h2>
+
+<h3 class="mume-header" id="dependencies">Dependencies:</h3>
+
+<ul>
+<li><strong>Node.js</strong> (JavaScript runtime environment)
+<ul>
+<li><strong>Express</strong> (Web framework and middleware)</li>
+<li><strong>Mongoose</strong> (MongoDB driver)</li>
+<li><strong>MongoDB</strong> (Database)</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="prerequisites">Prerequisites</h3>
+
+<p>Before running the application, make sure you have the following:</p>
+<ul>
+<li>Node.js installed on your machine.</li>
+<li>MongoDB installed and running.</li>
+<li>A <code>.env</code> file in the project directory containing the necessary environment variables. (Refer to the <code>.env</code> file for the required variables.)</li>
+</ul>
+<h3 class="mume-header" id="import-the-sample-data">Import the Sample Data:</h3>
+
+<p>A dump of the mongoDB database and its collections is provided in the root of the project repository as a JSON file. This can be imported into a mongoDB database.</p>
+<h3 class="mume-header" id="installation">Installation</h3>
+
+<ol>
+<li>Clone the repository or download the source code.</li>
+<li>Navigate to the project directory.</li>
+<li>Install the dependencies by running the following command:</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>npm install
+</code></pre><h3 class="mume-header" id="configuration">Configuration</h3>
+
+<p>Before running the application, make sure to configure the database connection. Open the <code>.env</code> file and set the following variables:</p>
+<pre data-role="codeBlock" data-info="env" class="language-env"><code>DB_USER=&lt;The username for connecting to the MongoDB server&gt;
+DB_PASS=&lt;The password for connecting to the MongoDB server&gt;
+DB_URL=&lt;The URL or hostname of the MongoDB server&gt;
+</code></pre><h3 class="mume-header" id="running-the-application">Running the Application</h3>
+
+<p>To start the application, run the following command:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>npm start
+</code></pre><p>This will start the server, and you should see the message &quot;Connected to DB&quot; in the console if the database connection is successful.</p>
+<h2 class="mume-header" id="code-explanation">Code Explanation</h2>
+
+<h3 class="mume-header" id="appjs"><code>app.js</code></h3>
+
+<p>The <code>app.js</code> file is the main entry point of the application. It sets up the Express.js application, connects to the MongoDB database, and configures various middleware and routes.</p>
+<ul>
+<li>The <code>require(&quot;dotenv&quot;).config()</code> line loads the environment variables from the <code>.env</code> file into <code>process.env</code>.</li>
+<li>Required modules are imported using the <code>require</code> function.</li>
+<li>The database connection URI is constructed using the environment variables.</li>
+<li>The MongoDB connection is established using <code>mongoose.connect</code>.</li>
+<li>The application&apos;s view engine is set to EJS (Embedded JavaScript) for rendering dynamic views.</li>
+<li>Middleware functions such as <code>logger</code>, <code>express.json</code>, <code>cookieParser</code>, and <code>express.static</code> are configured.</li>
+<li>The routes for the index and players are defined using <code>app.use</code>.</li>
+<li>The error handling middleware functions handle 404 errors and other application errors.</li>
+</ul>
+<h2 class="mume-header" id="route-get-players">Route: GET &apos;/players&apos;</h2>
+
+<p>This route handles the HTTP GET request to retrieve player information. The behavior of the route depends on the query parameters provided in the request URL.</p>
+<ul>
+<li>The <code>console.log(req.query)</code> statement logs the query parameters to the console for debugging purposes.</li>
+</ul>
+<h3 class="mume-header" id="case-1-no-query-parameters-default-behavior">Case 1: No query parameters (default behavior)</h3>
+
+<p>If no query parameters are provided, the route returns all players in the database.</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>GET /players
+</code></pre><p><a href="https://mongo-teams.liamo2.repl.co/players">https://mongo-teams.liamo2.repl.co/players</a></p>
+<h3 class="mume-header" id="case-2-query-parameter-action-is-findbyid">Case 2: Query parameter &apos;action&apos; is &apos;findById&apos;</h3>
+
+<p>If the query parameter &apos;action&apos; is set to &apos;findById&apos;, the route retrieves a player with the specified ID.</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>GET /players?action=findById&amp;id=64a2329dc348d68c6635112e
+</code></pre><p><a href="https://mongo-teams.liamo2.repl.co/players?action=findById&amp;id=64a2329dc348d68c6635112e">https://mongo-teams.liamo2.repl.co/players?action=findById&amp;id=64a2329dc348d68c6635112e</a></p>
+<h3 class="mume-header" id="case-3-query-parameter-action-is-findbyidanddelete">Case 3: Query parameter &apos;action&apos; is &apos;findByIdAndDelete&apos;</h3>
+
+<p>If the query parameter &apos;action&apos; is set to &apos;findByIdAndDelete&apos;, the route deletes a player with the specified ID.</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>GET /players?action=findByIdAndDelete&amp;id=64a2329dc348d68c6635112e
+</code></pre><p><a href="https://mongo-teams.liamo2.repl.co/players?action=findByIdAndDelete&amp;id=64a2329dc348d68c6635112e">https://mongo-teams.liamo2.repl.co/players?action=findByIdAndDelete&amp;id=64a2329dc348d68c6635112e</a></p>
+<h3 class="mume-header" id="case-4-query-parameter-action-is-findbyidandupdate">Case 4: Query parameter &apos;action&apos; is &apos;findByIdAndUpdate&apos;</h3>
+
+<p>If the query parameter &apos;action&apos; is set to &apos;findByIdAndUpdate&apos;, the route updates a player with the specified ID using the provided fields.</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>GET /players?action=findByIdAndUpdate&amp;id=64a2329dc348d68c6635112e&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=red,green,blue
+</code></pre><p><a href="https://mongo-teams.liamo2.repl.co/players?action=findByIdAndUpdate&amp;id=64a2329dc348d68c6635112e&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=red,green,blue">https://mongo-teams.liamo2.repl.co/players?action=findByIdAndUpdate&amp;id=64a2329dc348d68c6635112e&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=red,green,blue</a></p>
+<h3 class="mume-header" id="case-5-query-parameter-action-is-create">Case 5: Query parameter &apos;action&apos; is &apos;create&apos;</h3>
+
+<p>If the query parameter &apos;action&apos; is set to &apos;create&apos;, the route creates a new player with the provided fields.</p>
+<p>Example:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>GET /players?action=create&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=red,green,blue
+</code></pre><p><a href="https://mongo-teams.liamo2.repl.co/players?action=create&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=red,green,blue">https://mongo-teams.liamo2.repl.co/players?action=create&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=red,green,blue</a></p>
+<h3 class="mume-header" id="error-handling">Error Handling</h3>
+
+<ul>
+<li>If any required fields are missing in the query parameters (e.g., &apos;fname925&apos;, &apos;lname925&apos;, &apos;phone925&apos;, &apos;preference925&apos;), the route returns a JSON response with a &apos;message&apos; field indicating the missing fields.</li>
+<li>If the requested player ID is not found in the database, the route returns a JSON response with a &apos;message&apos; field indicating that there is no player with the requested ID.</li>
+<li>If any error occurs during the database operation, the route returns a JSON response with a &apos;message&apos; field indicating that an error has occurred.</li>
+</ul>
+<h2 class="mume-header" id="export">Export</h2>
+
+<p>The <code>router</code> object defined in the code is exported to be used by other parts of the application.</p>
+<p>Example usage:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword keyword-const">const</span> playersRouter <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;./routes/players&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ...</span>
+app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token string">&apos;/players&apos;</span><span class="token punctuation">,</span> playersRouter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="playersjs-code">Players.js code:</h2>
+
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword keyword-var">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;express&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-var">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token method function property-access"><span class="token maybe-class-name">Router</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-var">var</span> <span class="token maybe-class-name">Players</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;../models/Players&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//If the query is empty, return all players</span>
+  <span class="token comment">//Ex: http://localhost:3000/players</span>
+  <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">//If the req action is findById, return the player with the id</span>
+      <span class="token comment">//Ex: http://localhost:3000/players?action=findById&amp;id=64a2329dc348d68c6635112e</span>
+      <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token string">&quot;findById&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">findById</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>docs <span class="token operator">==</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;No player with requested id&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Encountered an error&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">//If the req action is findByIdAndDelete, delete the player with the id</span>
+      <span class="token comment">//Ex: http://localhost:3000/players?action=findByIdAndDelete&amp;id=64a2329dc348d68c6635112e</span>
+      <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token string">&quot;findByIdAndDelete&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">findByIdAndDelete</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>docs <span class="token operator">==</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;No player with requested id&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Encountered an error&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+       <span class="token comment">//If the req action is findByIdAndUpdate, update the player with the id</span>
+       <span class="token comment">// Ex: http://localhost:3000/players?action=findByIdAndUpdate&amp;id=64a2329dc348d68c6635112e&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=1,2,3</span>
+       <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token string">&quot;findByIdAndUpdate&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//Check if the required fields are missing</span>
+        <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">fname925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token operator">||</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">lname925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token operator">||</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">phone925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token operator">||</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">preference925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span>
+        <span class="token punctuation">)</span><span class="token punctuation">{</span>
+          res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Missing required fields&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword control-flow keyword-else">else</span><span class="token punctuation">{</span>
+          <span class="token comment">//If all required fields are present, update the player</span>
+          <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">findByIdAndUpdate</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+              fname925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">fname925</span><span class="token punctuation">,</span>
+              lname925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">lname925</span><span class="token punctuation">,</span>
+              phone925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">phone925</span><span class="token punctuation">,</span>
+              preference925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>docs <span class="token operator">==</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;No player with requested id&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Encountered an error&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">//If the req action is create, create a new player</span>
+      <span class="token comment">//Ex: http://localhost:3000/players?action=create&amp;fname925=John&amp;lname925=Doe&amp;phone925=1234567890&amp;preference925=1,2,3</span>
+      <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token string">&quot;create&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//Check if the required fields are missing</span>
+        <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">fname925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token operator">||</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">lname925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token operator">||</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">phone925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token operator">||</span>
+          req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">preference925</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span>
+        <span class="token punctuation">)</span><span class="token punctuation">{</span>
+          res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Missing required fields&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword control-flow keyword-else">else</span><span class="token punctuation">{</span>
+          <span class="token comment">//If all required fields are present, create the player</span>
+          <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">create</span><span class="token punctuation">(</span>
+            <span class="token punctuation">{</span>
+              fname925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">fname925</span><span class="token punctuation">,</span>
+              lname925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">lname925</span><span class="token punctuation">,</span>
+              phone925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">phone925</span><span class="token punctuation">,</span>
+              preference925<span class="token operator">:</span> req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">preference925</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>docs <span class="token operator">==</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Encountered an error&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow keyword-else">else</span> <span class="token punctuation">{</span>
+              res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Encountered an error&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword control-flow keyword-else">else</span><span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>message<span class="token operator">:</span> <span class="token string">&quot;Invalid action&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> router<span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="sorting-the-players-in-to-teams">Sorting the players in to teams:</h3>
+
+<p>In the assignment specification, students were given instructions to sort the players into teams based on their preferences. Based on the result of the sorting, a goodness score is applied:</p>
+<ul>
+<li>If a player is assigned to their first preference, they get 5 points.</li>
+<li>If a player is assigned to their second preference, they get 4 points.</li>
+<li>If a player is assigned to their third preference, they get 3 points.</li>
+</ul>
+<p>Based on this specification we can gather three things:</p>
+<ul>
+<li>The player&apos;s preferences are ordered from most preferred to least preferred.</li>
+<li>The player&apos;s preferences are unique.</li>
+<li>The player can only be assigned to one team.</li>
+<li>The player can only indicate three preferences.</li>
+</ul>
+<p>There are some unknown factors that we need to consider:</p>
+<ul>
+<li>How many teams are there? This can be determined in two ways:
+<ul>
+<li>A parameter is passed to the application that indicates the number of teams.</li>
+<li>The number of teams is determined by the number of unique preferences indicated by the players.</li>
+</ul>
+</li>
+</ul>
+<p>There are two approaches to completing this problem:</p>
+<ul>
+<li>The first approach is to sort the players into teams based on their preferences based on the initial order. This approach is more efficient, but it does not guarantee that all players will be assigned to a team or an optimized score.</li>
+</ul>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword keyword-var">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;express&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-var">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token method function property-access"><span class="token maybe-class-name">Router</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-var">var</span> <span class="token maybe-class-name">Players</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;../models/Players&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+<span class="token comment">// 1. Teams will have an equal number of players,</span>
+<span class="token comment">// 2. Players will be sorted by their preference</span>
+<span class="token comment">// 3. If the number of players is not divisible by the number of teams, the remaining players will not be added to a team</span>
+<span class="token comment">// 4. The score of the sorting will be determined by the players preference</span>
+<span class="token comment">// 5. Players assigned to their first preference will have a score of 5</span>
+<span class="token comment">// 6. Players assigned to their second preference will have a score of 4</span>
+<span class="token comment">// 7. Players assigned to their third preference will have a score of 3</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">assignTeamsQuick</span><span class="token punctuation">(</span><span class="token parameter">players</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//Set a score of 0 to each player:</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> player <span class="token keyword keyword-of">of</span> players<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        player<span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//Find the unique team names:</span>
+    <span class="token keyword keyword-let">let</span> teams <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> player <span class="token keyword keyword-of">of</span> players<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> preference <span class="token keyword keyword-of">of</span> player<span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>preference<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                teams<span class="token punctuation">[</span>preference<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//Find the number of players per team:</span>
+    <span class="token keyword keyword-let">let</span> playersPerTeam <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">floor</span><span class="token punctuation">(</span>players<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">/</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span>teams<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-let">let</span> totalScore <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//Assign players to their first preference, adding the appropriate score to the object representing the player:</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> players<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&lt;</span> playersPerTeam<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            totalScore <span class="token operator">+=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+            players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+            teams<span class="token punctuation">[</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&lt;</span> playersPerTeam<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            totalScore <span class="token operator">+=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+            players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+            teams<span class="token punctuation">[</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&lt;</span> playersPerTeam<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            totalScore <span class="token operator">+=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+            players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+            teams<span class="token punctuation">[</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>teams<span class="token operator">:</span> teams<span class="token punctuation">,</span> totalScore<span class="token operator">:</span> totalScore<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">assignTeamsNoPreference</span><span class="token punctuation">(</span><span class="token parameter">players</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//Set a score of 0 to each player:</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> player <span class="token keyword keyword-of">of</span> players<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        player<span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//Find the unique team names:</span>
+    <span class="token keyword keyword-let">let</span> teams <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> player <span class="token keyword keyword-of">of</span> players<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> preference <span class="token keyword keyword-of">of</span> player<span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>preference<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                teams<span class="token punctuation">[</span>preference<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//Find the number of players per team:</span>
+    <span class="token keyword keyword-let">let</span> playersPerTeam <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">floor</span><span class="token punctuation">(</span>players<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">/</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">keys</span><span class="token punctuation">(</span>teams<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-let">let</span> totalScore <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> players<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> key <span class="token keyword keyword-in">in</span> teams<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&lt;</span> playersPerTeam<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    totalScore <span class="token operator">+=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+                    players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">===</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    totalScore <span class="token operator">+=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+                    players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">===</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    totalScore <span class="token operator">+=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                    players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">score</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                teams<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword control-flow keyword-break">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>teams<span class="token operator">:</span> teams<span class="token punctuation">,</span> totalScore<span class="token operator">:</span> totalScore<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+        
+
+<span class="token comment">//Generate all the combinations with the same cardinality as the number of players:</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">permutePlayers</span><span class="token punctuation">(</span><span class="token parameter">players</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-var">var</span> results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  
+    <span class="token comment">//Recursively generate all the permutations:</span>
+    <span class="token keyword keyword-function">function</span> <span class="token function">permute</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> previousArray</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword keyword-var">var</span> currentArray
+      <span class="token keyword keyword-var">var</span> previousArray <span class="token operator">=</span> previousArray <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  
+      <span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-var">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        currentArray <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          results<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>previousArray<span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span>currentArray<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">permute</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> previousArray<span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span>currentArray<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> currentArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token keyword control-flow keyword-return">return</span> results<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token function">permute</span><span class="token punctuation">(</span>players<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+
+<span class="token comment">//Generate all permutations of the players, then run the quick algorithm on each permutation to calculate its score:</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">assignTeamsOptimized</span><span class="token punctuation">(</span><span class="token parameter">players</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//Find the unique team names:</span>
+    <span class="token keyword keyword-let">let</span> teams <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> player <span class="token keyword keyword-of">of</span> players<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> preference <span class="token keyword keyword-of">of</span> player<span class="token punctuation">.</span><span class="token property-access">preference925</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teams<span class="token punctuation">[</span>preference<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                teams<span class="token punctuation">[</span>preference<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//Get each possible permutation of the players:</span>
+    <span class="token keyword keyword-let">let</span> playerPermutations <span class="token operator">=</span> <span class="token function">permutePlayers</span><span class="token punctuation">(</span>players<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//Create an array to store each possible permutation of the player arrangement:</span>
+    <span class="token keyword keyword-let">let</span> teamPermutations <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//For each permutation of the players, run the quick algorithm to calculate the score and push it to the array:</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> permutation <span class="token keyword keyword-of">of</span> playerPermutations<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-let">let</span> result <span class="token operator">=</span> <span class="token function">assignTeamsNoPreference</span><span class="token punctuation">(</span>permutation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        teamPermutations<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>teamPermutations<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword keyword-let">let</span> largestScore <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-let">let</span> largestScoreIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//Find the permutation with the highest score:</span>
+    <span class="token keyword control-flow keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> teamPermutations<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>teamPermutations<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">totalScore</span> <span class="token operator">&gt;</span> largestScore<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            largestScore <span class="token operator">=</span> teamPermutations<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">totalScore</span><span class="token punctuation">;</span>
+            largestScoreIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//Return the first item in the array, which will be the permutation with the highest score:</span>
+    <span class="token keyword control-flow keyword-return">return</span> teamPermutations<span class="token punctuation">[</span>largestScoreIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">//Description:</span>
+<span class="token comment">// This route will sort the players into teams, in order, according to their indicated preference:</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//If a list of players in the game is not provided:</span>
+    <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword keyword-let">let</span> teamsQuick <span class="token operator">=</span> <span class="token function">assignTeamsQuick</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>teamsQuick<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Description:</span>
+<span class="token comment">// This route will sort the players into teams, in order, according to their indicated preference:</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">&apos;/quick&apos;</span><span class="token punctuation">,</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//If a list of players in the game is not provided:</span>
+    <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword keyword-let">let</span> teamsQuick <span class="token operator">=</span> <span class="token function">assignTeamsQuick</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>teamsQuick<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Description:</span>
+<span class="token comment">// This route will sort the players into teams, trying to optimize for the highest score:</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">get</span><span class="token punctuation">(</span><span class="token string">&apos;/optimized&apos;</span><span class="token punctuation">,</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//If a list of players in the game is not provided:</span>
+    <span class="token keyword control-flow keyword-if">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span><span class="token property-access">query</span><span class="token punctuation">.</span><span class="token property-access">action</span> <span class="token operator">===</span> <span class="token keyword nil keyword-undefined">undefined</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow keyword-await">await</span> <span class="token maybe-class-name">Players</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">docs</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword keyword-let">let</span> teamsOptimized <span class="token operator">=</span> <span class="token function">assignTeamsOptimized</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>teamsOptimized<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token keyword control-flow keyword-catch">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> router<span class="token punctuation">;</span>
+
+</pre><p>Accessing these routes is done by sending a GET request to the following URLs:<br>
+/teams/quick &lt;- Assigns players to teams using the quick algorithm, placing them in their preferred teams first, by order which they are listed in the array.<br>
+/teams/optimized &lt;- Assigns players to teams while trying to find the best possible arrangement of players, by calculating the score of each permutation of players and returning the permutation with the highest score.</p>
+<p>So, for instance, if we have the following objects in our database:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">[</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2316ec348d68c6635112c&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grace&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hopper&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;555-555-5555&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2329dc348d68c6635112e&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234567890&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a232b1c348d68c6635112f&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Jane&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a232f5c348d68c66351131&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Alan&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Turing&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2330ac348d68c66351132&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Ada&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Lovelace&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2332bc348d68c66351133&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Steve&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Wozniak&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+</pre><p>You will receive a JSON response like this with the players sorted into teams, using the quick algorithm:<br>
+<a href="https://mongo-teams.liamo2.repl.co/teams/quick">https://mongo-teams.liamo2.repl.co/teams/quick</a></p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">&quot;teams&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;red&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2316ec348d68c6635112c&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grace&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hopper&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2329dc348d68c6635112e&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234567890&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;green&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2330ac348d68c66351132&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Ada&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Lovelace&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2332bc348d68c66351133&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Steve&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Wozniak&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;blue&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a232b1c348d68c6635112f&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Jane&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a232f5c348d68c66351131&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Alan&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Turing&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;totalScore&quot;</span><span class="token operator">:</span> <span class="token number">27</span>
+<span class="token punctuation">}</span>
+</pre><p>Which yields a total score of 27.</p>
+<p>By instead using optimized score algorithm, we can yield 28 instead:<br>
+<a href="https://mongo-teams.liamo2.repl.co/teams/optimized">https://mongo-teams.liamo2.repl.co/teams/optimized</a></p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">&quot;teams&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;red&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2316ec348d68c6635112c&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Grace&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hopper&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2329dc348d68c6635112e&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234567890&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;green&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a232b1c348d68c6635112f&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Jane&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a232f5c348d68c66351131&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Alan&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Turing&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;blue&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2330ac348d68c66351132&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Ada&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Lovelace&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;64a2332bc348d68c66351133&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Steve&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;lname925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Wozniak&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;phone925&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1-555-555-5555&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;preference925&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;green&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;totalScore&quot;</span><span class="token operator">:</span> <span class="token number">28</span>
+<span class="token punctuation">}</span>
+</pre><p>There is some drawbacks to using this algorithm as it depends on permuting the array, thus the complexity of the algorithm is n!. For a database with 6 items, this is only 720 permutations, but for a database with 10 items, this is 3,628,800 permutations.</p>
+<h2 class="mume-header" id="conclusion">Conclusion</h2>
+
+<p>This readme file provides an overview of the code structure and functionality. By following the installation and configuration instructions, you should be able to run the application and retrieve player data from the MongoDB database. Feel free to explore and modify the code to meet your specific requirements.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
